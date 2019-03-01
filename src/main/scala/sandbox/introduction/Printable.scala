@@ -36,3 +36,17 @@ object PrintableTest extends App {
   "Hello kitten".print
   Cat("Pink", 4, "white").print
 }
+
+
+object PrintableWithCats extends App {
+
+  import cats.Show
+  import cats.instances.int._
+  import cats.instances.string._
+  import cats.syntax.show._
+
+  val showInt: Show[Int] = Show.apply[Int]
+  val showString: Show[String] = Show.apply[String]
+  implicit val showCat: Show[Cat] = Show.show(value => s"${value.name} is a ${value.age} year-old ${value.color} cat.")
+  println(Cat("Pink", 4, "white").show)
+}
