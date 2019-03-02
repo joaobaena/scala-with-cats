@@ -1,4 +1,4 @@
-package sandbox.monoids
+package sandbox.monoids.sample
 
 trait Semigroup[A] {
   def combine(x: A, y: A): A
